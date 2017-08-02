@@ -1,19 +1,19 @@
 
 var db = db.getSisterDB("iii-2017-07");
 
-var showCursorItems = function(cursor){
+var showCursorItems = function(cursor) {
 	while (cursor.hasNext()) {
    		printjson(cursor.next());
 	}
 }
 
-var findAllAndShow = function(coll_name){
+var findAllAndShow = function(coll_name) {
 	print('call findAll');
 	var cursor = db[coll_name].find();
     showCursorItems(cursor);
 }
 
-var findOneAndShow = function(coll_name){
+var findOneAndShow = function(coll_name) {
 	printjson(db[coll_name].findOne());
 }
 
@@ -29,25 +29,23 @@ db.mr1.insert(
 	]	
 );
 
-var map = function(){
-	for(var key in this){
-		//if(key !== '_id'){
+var map = function() {
+	for(var key in this) {
+		if(key !== '_id') {
 			emit(key,{count:1});
-		//}
+		}
 	}
 }
-var reduce = function(key,emits){
+var reduce = function(key,emits) {
 	total = 0;
-	for(var i in emits){
-		total+=emits[i].count;
+	for(var i in emits) {
+		total += emits[i].count;
 	}
 	return {count:total};
 }
 
-// var mrResult = db.runCommand({'mapreduce':'mr1','map':map,'reduce':reduce,"out":{inline:1}});
-// printjson(mrResult);
+var mrResult = db.runCommand({'mapreduce':'mr1','map':map,'reduce':reduce,'out':{inline:1}});
+printjson(mrResult);
 
 var mrResult = db.mr1.mapReduce(map,reduce,{out:'A20170702'});  
-//findAllAndShow('A20170506');
-
-
+// findAllAndShow('A20170506');

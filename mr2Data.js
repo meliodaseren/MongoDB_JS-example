@@ -16,7 +16,6 @@ var findOneAndShow = function(coll_name){
 	printjson(db[coll_name].findOne());
 }
 
-
 var article1 = { 
 	date:(new Date(2016,5,23)),
 	url:"http://idealog.co.nz/workplace/2016/01/cplusplusAndMongdb",
@@ -24,16 +23,12 @@ var article1 = {
 	tags:['c++','mongodb']
 }
 
-
-
 var article2 = { 
 	date:(new Date(2016,3,25)),
 	url:"http://idealog.co.nz/workplace/2016/01/cpluscplusAndPython",
 	score: 90,
 	tags:['c++','python']
 }
-
-
 
 var article3 = { 
 	date:(new Date(2016,1,25)),
@@ -61,13 +56,14 @@ db.mr2Data.insert([article1,article2,article3,article4,article5])
 
 map = function(){
 	for(var i in this.tags){
-		var recency = 1.0 / ((new Date() - this.date) /1000000)
+        // var recency = 1.0 / (new Date() - this.date)
+		var recency = 1.0 / ((new Date() - this.date) / 1000000)
+        /* Regularization source */
 		var score = recency * this.score
 
 		emit(this.tags[i],{"urls":[this.url],"score":score});
 	}
 };
-
 
 reduce = function(key,emits){
 
@@ -81,6 +77,3 @@ reduce = function(key,emits){
 
 db.mr2Data.mapReduce(map,reduce,{out:'mr2DataResult'});  
 findAllAndShow('mr2DataResult');
-
-
-

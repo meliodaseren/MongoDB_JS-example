@@ -5,22 +5,22 @@
 // var emp5 = {name:'Joe',hireDate:new Date('2013/09/15'),salary:50000,bonus:10000, '401k':2000}
 // var emp6 = {name:'Austin',hireDate:new Date('2009/01/15'),salary:80000,bonus:20000, '401k':3000}
 
-var emp1 = {firstName:'Alen',lastName:'Huang',hireDate:(new Date('2012/03/15')),salary:50000,bonus:10000,'401k':2000}
-var emp2 = {firstName:'Kelly',lastName:'Chu',hireDate:new Date('2012/07/15'),salary:45000,bonus:2000, '401k':1000}
-var emp3 = {firstName:'Mavis',lastName:'Li',hireDate:new Date('2011/02/15'),salary:50000,bonus:10000, '401k':1000}
-var emp4 = {firstName:'Steven',lastName:'chen',hireDate:new Date('2010/05/15'),salary:50000,bonus:10000, '401k':1000}
-var emp5 = {firstName:'Joe',lastName:'Yang',hireDate:new Date('2013/09/15'),salary:50000,bonus:10000, '401k':2000}
-var emp6 = {firstName:'Austin',lastName:'Cheng',hireDate:new Date('2009/01/15'),salary:80000,bonus:20000, '401k':3000}
+var emp1 = {firstName:'Alen',lastName:'Huang',hireDate:new Date('2012/03/15'),salary:50000,bonus:10000,'401k':2000}
+var emp2 = {firstName:'Kelly',lastName:'Chu',hireDate:new Date('2012/07/15'),salary:45000,bonus:2000,'401k':1000}
+var emp3 = {firstName:'Mavis',lastName:'Li',hireDate:new Date('2011/02/15'),salary:50000,bonus:10000,'401k':1000}
+var emp4 = {firstName:'Steven',lastName:'chen',hireDate:new Date('2010/05/15'),salary:50000,bonus:10000,'401k':1000}
+var emp5 = {firstName:'Joe',lastName:'Yang',hireDate:new Date('2013/09/15'),salary:50000,bonus:10000,'401k':2000}
+var emp6 = {firstName:'Austin',lastName:'Cheng',hireDate:new Date('2009/01/15'),salary:80000,bonus:20000,'401k':3000}
 
 var db = db.getSisterDB("iii-2017-07");
 
 db.employee.drop()
 db.employee.insert([emp1,emp2,emp3,emp4,emp5,emp6])
 
-var showCursorItems = function(cursor){
-	while (cursor.hasNext()) {
-   		printjson(cursor.next());
-	}
+var showCursorItems = function(cursor) {
+    while (cursor.hasNext()) {
+   	    printjson(cursor.next());
+    }
 }
 
 // var cursor = db.employee.aggregate({
@@ -72,18 +72,13 @@ var cursor = db.employee.aggregate({
         lname:'$lastName',
 		_id:0,
 		email:{
-			$concat:[
-				{$substr:['$firstName',1,3]},
-				".",
-				"$lastName",
-				"@vpon.com"
-			]
-			
+		    $concat:[
+			    {$substr:['$firstName',1,3]},
+                ".",
+                "$lastName",
+                "@vpon.com"
+		    ]
 		}
 	}
 });
 showCursorItems(cursor);
-
-
-
-
