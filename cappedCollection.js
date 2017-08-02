@@ -12,8 +12,8 @@ db.capped_coll.drop();
 db.createCollection('capped_coll',
 	{
 		capped:true,
-		size:20000, //maximum size in bytes for a capped collection.
-		max:30 //maximum number of documents  
+		size:20000,  //maximum size in bytes for a capped collection.
+		max:30  //maximum number of documents  
 	}
 );
 for(i = 0; i < 100 ; i++){

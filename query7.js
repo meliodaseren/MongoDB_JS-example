@@ -26,7 +26,7 @@ var db = db.getSisterDB("iii-2017-07");
 // print((new Date()).getTime() - start);
 /* --------------------------------------------------- */
 
-//db.usersNonIndex.ensureIndex({username:1})
+// db.usersNonIndex.ensureIndex({username:1})
 
 //db.usersNonIndex.ensureIndex({age:1,username:1})
 //db.usersNonIndex.ensureIndex({username:1,age:1})
@@ -38,21 +38,24 @@ var db = db.getSisterDB("iii-2017-07");
 // printjson(explainObj1.executionStats)
 
 
-print("===================================")
-var explainObj2 = db.usersNonIndex.find({username:'user101'}).explain("executionStats");
-printjson(explainObj2.executionStats)
+// print('----------------------------------------------------');
+/* limit(1) 限制抓一筆資料 */
+/* 觀察 executionTimeMillisEstimate 消耗的時間 */
+// var explainObj2 = db.usersNonIndex.find({username:'user101'}).explain("executionStats");
+// printjson(explainObj2.executionStats)
 
 
 // var explainObj = db.users.find({"_id" : ObjectId("583fe74e6f22d56e87701cdb")}).explain("executionStats");
 // printjson(explainObj.executionStats)
 
-// var explainObj = db.usersNonIndex.find({})
-// 	.limit(100000)
-// 	.sort({age:1,username: 1})
-// 	//.hint({$natural:1})
-// 	//.hint({username:1,age:1})
-// 	//.hint({age:1,username:1})
-//  	.explain("executionStats");
+var explainObj = db.usersNonIndex.find({})
+	.limit(100000)
+	/* 排序 age -> username */
+	.sort({age:1, username: 1})
+	//.hint({$natural:1})
+	//.hint({username:1,age:1})
+	//.hint({age:1,username:1})
+ 	.explain("executionStats");
 
 // printjson(explainObj.executionStats);
 
@@ -99,8 +102,3 @@ printjson(explainObj2.executionStats)
 //  	.explain("executionStats");
 // printjson(explainObj3)
 //print('use natural spend:'+explainObj3.executionStats.executionTimeMillis+'ms');
-
-
-
-
-
