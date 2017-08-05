@@ -31,7 +31,6 @@ db.lookupTel.insert([
 						KellyTel_1,KellyTel_2
 					])
 
-
 cursor = db.lookupPerson.aggregate(
 	{
       $lookup:
@@ -63,49 +62,45 @@ cursor = db.lookupPerson.aggregate(
 
 showCursorItems(cursor)
 
-/*
-db.adminCommand( { setFeatureCompatibilityVersion: "3.4" } )
 
-db.viewPerson.drop();
+// db.adminCommand( { setFeatureCompatibilityVersion: "3.4" } )
 
-db.createView(
-  "viewPerson", //view name
-  "lookupPerson", // source
-  [
-	{
-		$lookup:
-        {
-          from: "lookupTel",
-          localField: "tel_group",
-          foreignField: "group",
-          as: "tel_arr"
-        }
-	}
-	,
-	{$sort:{name:1}}
-	,
-    {
-   	  $project:{
-        user:"$name",
-        tels:"$tel_arr",
-        _id:0
-      }
-    }
-    ,
-    {
-   	  $project:{
-        "tels._id":0,
-        "tels.group":0
-      }
-    }  
-  ]
+// db.viewPerson.drop();
 
-);
+// db.createView(
+//   "viewPerson",    //view name
+//   "lookupPerson",  // source
+//   [
+// 	{
+// 		$lookup:
+//         {
+//           from: "lookupTel",
+//           localField: "tel_group",
+//           foreignField: "group",
+//           as: "tel_arr"
+//         }
+// 	}
+// 	,
+// 	{$sort:{name:1}}
+// 	,
+//     {
+//    	  $project:{
+//         user:"$name",
+//         tels:"$tel_arr",
+//         _id:0
+//       }
+//     }
+//     ,
+//     {
+//    	  $project:{
+//         "tels._id":0,
+//         "tels.group":0
+//       }
+//     }  
+//   ]
 
-cursor = db.viewPerson.find();
-showCursorItems(cursor);
+// );
 
-*/
-
-
+// cursor = db.viewPerson.find();
+// showCursorItems(cursor);
 

@@ -9,14 +9,13 @@ db.open(function(err,db){
 	else{
 		db.collection('node_Coll0707',function(err,collection){
 			collection.insert({firstName:'Finnxxx',lastName:'chengxxx'},
-				 function(err,docs){
+				function(err,docs){
 				 	if(err) throw err;
 				 	else{
 				 		console.log(docs);
 				 		db.close();	
-				 	}
-					
-				 }
+				 	}	
+				}
 			)
 		})
 	}

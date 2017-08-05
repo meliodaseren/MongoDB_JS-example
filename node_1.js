@@ -5,6 +5,7 @@ var server = new mongo.Server(host,port,{auto_reconnect:true});
 var db = new mongo.Db('iii-2017-07',server,{safe:true})
 
 console.log('1. call db.open()');
+
 db.open(function(err,db){
 	if(err) throw err;
 	else{
@@ -19,6 +20,3 @@ db.on('close',function(err,db){
 	if(err) throw err;
 	else console.log('4. close DB: OK');
 })
-
-
-
