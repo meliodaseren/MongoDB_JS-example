@@ -30,7 +30,7 @@ MongoDB 3.4
 * Automatic Scaling (sharding)
     * **可擴展分片集群**
     * Automatic sharding distributes data across a cluster of machines.
-    * Replica sets can provide eventually-consistent reads for low-latency high throughput deployments.
+    * Replica sets can provide **eventually-consistent** reads for **low-latency high throughput** deployments.
 
 ## 參考
 
@@ -44,8 +44,9 @@ MongoDB 3.4
 
 [什麼場景應該用MongoDB ？ - 雲棲社區](https://yq.aliyun.com/articles/64352?spm=5176.8091938.0.0.oAHbxp)
 
+http://blog.csdn.net/shehun1/article/details/21240731
 
-
+http://www.jianshu.com/p/4521f9aa7355
 
 ---
 
