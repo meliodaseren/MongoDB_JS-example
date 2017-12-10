@@ -55,7 +55,7 @@ http://www.jianshu.com/p/4521f9aa7355
 https://docs.mongodb.com/manual/core/server-side-javascript/
 
 
-##　Write Scripts for the mongo Shell
+Write Scripts for the mongo Shell
 
 https://docs.mongodb.com/manual/tutorial/write-scripts-for-the-mongo-shell/
 
