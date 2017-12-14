@@ -1,10 +1,8 @@
 # http://api.mongodb.com/python/current/tutorial.html
 # https://docs.mongodb.com/manual/tutorial/query-documents/
 
-import pymongo
 from pymongo import MongoClient
 
-client = MongoClient()
 client = MongoClient('localhost', 27017)
 
 # Create database

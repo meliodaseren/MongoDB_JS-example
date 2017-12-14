@@ -58,7 +58,7 @@ Write Scripts for the mongo Shell
 
 https://docs.mongodb.com/manual/tutorial/write-scripts-for-the-mongo-shell/
 
-```
+```shell
 $ mongo code_name.js
 ```
 
@@ -67,9 +67,23 @@ $ mongo code_name.js
 
 https://mongodb.github.io/node-mongodb-native/
 
-```
+```shell
 $ npm install mongodb
 $ node node_1.js
+```
+
+### mongoose
+
+mongoose 是給 Node.js 的 MongoDB ODM，操作涉及三個層面：Schema, Model 與 Entity。
+
+* Schema 是資料 Documents 的骨架，本身不影響資料庫，用來產生 Model
+* Model 是用 Schema 產生的模型
+* Entity 則是 Model 的實作
+
+http://mongoosejs.com/
+
+```shell
+$ npm install mongoose
 ```
 
 ### 參考
@@ -78,8 +92,24 @@ https://ithelp.ithome.com.tw/articles/10186483
 
 http://fred-zone.blogspot.tw/2012/01/nodejs-mongodb.html
 
+http://blog.chh.tw/posts/mongodb-odm-mongoose/
+
+https://nodejust.com/node-js-mongoose-schema-model/
+
 
 ## PyMongo
 
 http://api.mongodb.com/python/current/tutorial.html
 
+```shell
+$ pip install pymongo
+```
+
+Making a Connection with MongoClient
+
+```python
+from pymongo import MongoClient
+
+client = MongoClient('localhost', 27017)
+# client = MongoClient('mongodb://localhost:27017/')
+```
