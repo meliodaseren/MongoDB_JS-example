@@ -44,16 +44,15 @@ MongoDB 3.4
 
 [什麼場景應該用MongoDB ？ - 雲棲社區](https://yq.aliyun.com/articles/64352?spm=5176.8091938.0.0.oAHbxp)
 
-http://blog.csdn.net/shehun1/article/details/21240731
+[MongoDB面試題集錦 - CSDN博客](http://blog.csdn.net/shehun1/article/details/21240731)
 
-http://www.jianshu.com/p/4521f9aa7355
+[MongoDB經典面試題 - 簡書](http://www.jianshu.com/p/4521f9aa7355)
 
 ---
 
 ## Server-side JavaScript
 
 https://docs.mongodb.com/manual/core/server-side-javascript/
-
 
 Write Scripts for the mongo Shell
 
@@ -62,4 +61,25 @@ https://docs.mongodb.com/manual/tutorial/write-scripts-for-the-mongo-shell/
 ```
 $ mongo code_name.js
 ```
+
+
+## Node.js Driver
+
+https://mongodb.github.io/node-mongodb-native/
+
+```
+$ npm install mongodb
+$ node node_1.js
+```
+
+### 參考
+
+https://ithelp.ithome.com.tw/articles/10186483
+
+http://fred-zone.blogspot.tw/2012/01/nodejs-mongodb.html
+
+
+## PyMongo
+
+http://api.mongodb.com/python/current/tutorial.html
 
